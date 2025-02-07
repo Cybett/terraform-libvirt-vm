@@ -1,31 +1,28 @@
-Terraform Libvirt VM Module
+```markdown
+# Terraform Libvirt VM Module
 
-This Terraform module creates virtual machines (VMs) using the libvirt provider. It supports creating multiple VMs, attaching disks, and configuring network interfaces.
+This Terraform module creates virtual machines (VMs) using the `libvirt` provider. It supports creating multiple VMs, attaching disks, and configuring network interfaces.
 
-Features
+## Features
 
-Create one or multiple VM instances.
+- Create one or multiple VM instances.
+- Attach single or multiple disks to each VM.
+- Configure one or multiple network interfaces for each VM.
+- Manage storage pools for disk storage.
 
-Attach single or multiple disks to each VM.
+## Prerequisites
 
-Configure one or multiple network interfaces for each VM.
+- **Terraform**: Install Terraform from [here](https://www.terraform.io/downloads.html).
+- **Libvirt**: Ensure libvirt is installed and running on your system.
+- **KVM**: Verify that KVM is enabled on your system.
 
-Manage storage pools for disk storage.
+## Usage
 
-Prerequisites
-
-Terraform: Install Terraform from here.
-
-Libvirt: Ensure libvirt is installed and running on your system.
-
-KVM: Verify that KVM is enabled on your system.
-
-Usage
-
-Basic Usage
+### Basic Usage
 
 To use this module, add the following to your Terraform configuration:
 
+```hcl
 module "libvirt_vm" {
   source = "github.com/your-username/terraform-libvirt-vm"
 
@@ -42,77 +39,32 @@ module "libvirt_vm" {
   ]
   storage_pool         = "default"
 }
+```
 
-Input Variables
+## Input Variables
 
-Variable Name
+| Variable Name         | Description                                | Type           | Default Value |
+|----------------------|--------------------------------|--------------|--------------|
+| `instance_count`    | Number of VM instances to create | `number`      | `1`          |
+| `instance_name_prefix` | Prefix for the VM instance names | `string`      | `"vm"`       |
+| `disk_size`         | Size of the disk in GB          | `list(number)` | `[10]`       |
+| `network_interfaces` | List of network interfaces to attach | `list(map)`   | `[{network_name = "default"}]` |
+| `storage_pool`      | Name of the storage pool to use | `string`      | `"default"`  |
 
-Description
+## Outputs
 
-Type
+| Output Name    | Description                        |
+|---------------|--------------------------------|
+| `instance_names` | Names of the created VM instances |
+| `instance_ips`   | IP addresses of the created VM instances |
 
-Default Value
+## Advanced Usage
 
-instance_count
-
-Number of VM instances to create
-
-number
-
-1
-
-instance_name_prefix
-
-Prefix for the VM instance names
-
-string
-
-"vm"
-
-disk_size
-
-Size of the disk in GB
-
-list(number)
-
-[10]
-
-network_interfaces
-
-List of network interfaces to attach
-
-list(map)
-
-[{network_name = "default"}]
-
-storage_pool
-
-Name of the storage pool to use
-
-string
-
-"default"
-
-Outputs
-
-Output Name
-
-Description
-
-instance_names
-
-Names of the created VM instances
-
-instance_ips
-
-IP addresses of the created VM instances
-
-Advanced Usage
-
-Custom Disk Sizes
+### Custom Disk Sizes
 
 You can specify custom disk sizes for each VM:
 
+```hcl
 module "libvirt_vm" {
   source = "github.com/your-username/terraform-libvirt-vm"
 
@@ -126,11 +78,13 @@ module "libvirt_vm" {
   ]
   storage_pool         = "default"
 }
+```
 
-Multiple Network Interfaces
+### Multiple Network Interfaces
 
 You can attach multiple network interfaces to each VM:
 
+```hcl
 module "libvirt_vm" {
   source = "github.com/your-username/terraform-libvirt-vm"
 
@@ -147,11 +101,13 @@ module "libvirt_vm" {
   ]
   storage_pool         = "default"
 }
+```
 
-Examples
+## Examples
 
-Example 1: Single VM with Default Configuration
+### Example 1: Single VM with Default Configuration
 
+```hcl
 module "libvirt_vm" {
   source = "github.com/your-username/terraform-libvirt-vm"
 
@@ -165,9 +121,11 @@ module "libvirt_vm" {
   ]
   storage_pool         = "default"
 }
+```
 
-Example 2: Multiple VMs with Custom Disks and Networks
+### Example 2: Multiple VMs with Custom Disks and Networks
 
+```hcl
 module "libvirt_vm" {
   source = "github.com/your-username/terraform-libvirt-vm"
 
@@ -184,12 +142,18 @@ module "libvirt_vm" {
   ]
   storage_pool         = "default"
 }
+```
 
-Contributing
+## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request.
 
-License
+## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the **MIT License**.
+
+You are free to use, modify, and distribute this software, as long as the original copyright and license notice are included.
+
+See the [LICENSE](LICENSE) file for more details.
+```
 
