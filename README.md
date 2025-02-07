@@ -34,7 +34,7 @@ module "libvirt_vm" {
       network_name = "default"
     },
     {
-      network_name = "mynetwork"
+      network_name = "default"
     }
   ]
   storage_pool         = "default"
@@ -96,7 +96,7 @@ module "libvirt_vm" {
       network_name = "default"
     },
     {
-      network_name = "mynetwork"
+      network_name = "default"
     }
   ]
   storage_pool         = "default"
@@ -137,7 +137,7 @@ module "libvirt_vm" {
       network_name = "default"
     },
     {
-      network_name = "mynetwork"
+      network_name = "default"
     }
   ]
   storage_pool         = "default"
@@ -153,7 +153,5 @@ Contributions are welcome! Please open an issue or submit a pull request.
 This project is licensed under the **MIT License**.
 
 You are free to use, modify, and distribute this software, as long as the original copyright and license notice are included.
-
-See the [LICENSE](LICENSE) file for more details.
 ```
 
