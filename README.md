@@ -1,9 +1,9 @@
 - write terraform module that will:
-  > Use terraform libvirt provider to create VM instances:
-      1) the module should accept the creation of one or multiple instances
-       2) the module should allow for the creation of disk storage and attach to the instance created ( have a logic to support single or multiple disks)
-       3) The module should support attaching one or multiple network interfaces to the instance(s)
-        4) Management of storage pools ( of type directory)
+  - Use terraform libvirt provider to create VM instances:
+  1). the module should accept the creation of one or multiple instances
+ 2). the module should allow for the creation of disk storage and attach to the instance created ( have a logic to support single or multiple disks)
+ 3).The module should support attaching one or multiple network interfaces to the instance(s)
+4). Management of storage pools ( of type directory)
 
 
 ```markdown
